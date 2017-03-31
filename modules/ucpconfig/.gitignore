@@ -1,0 +1,9 @@
+*.sw[op]
+/junit.xml
+/spec/fixtures
+/pkg
+/coverage
+./bundle
+./vagrant
+/production
+/run_demo.sh

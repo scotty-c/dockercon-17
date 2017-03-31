@@ -1,0 +1,12 @@
+version: '2' 
+services:
+  etcd: 
+    image: gcr.io/google_containers/etcd:2.2.1
+    container_name: etcd
+    network_mode: host
+    command: ['/usr/local/bin/etcd', '--listen-client-urls=http://127.0.0.1:4001,http://172.17.10.101:4001', '--advertise-client-urls=http://172.17.10.101:4001', '--listen-peer-urls=http://127.0.0.1:2380', '--data-dir=/var/etcd/data']
+
+
+
+           
+

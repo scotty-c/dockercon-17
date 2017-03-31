@@ -1,0 +1,4 @@
+#!/bin/bash
+AUTHTOKEN=$(curl -sk -d '{"username":"<%= @ucp_username %>","password":"<%= @ucp_password %>"}' <%= @ucp_url %>/auth/login | jq -r .auth_token) && \
+curl -k -H "Authorization: Bearer $AUTHTOKEN" <%= @ucp_url %>/api/clientbundle -o bundle.zip && \
+unzip bundle.zip && rm -rf bundle.zip

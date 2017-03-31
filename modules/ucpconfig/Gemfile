@@ -1,0 +1,19 @@
+source "https://rubygems.org"
+
+gem 'rake', :group => [:development, :test]
+
+group :development do
+    gem 'pry'
+    gem 'puppet-lint'
+end
+
+group :test do
+    gem 'puppet', "~> 4.3"
+    gem 'puppetlabs_spec_helper'
+    gem 'rspec', "< 2.99"
+    gem 'rspec-puppet'
+    gem 'simplecov'
+    gem 'simplecov-json'
+    gem 'simplecov-rcov'
+    gem 'yarjuf' #Rspec Junit formatter
+end

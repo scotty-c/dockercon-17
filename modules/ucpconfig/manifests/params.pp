@@ -1,0 +1,21 @@
+class ucpconfig::params {
+  $ucp_master                    = ''
+  $ucp_deploy_node               = ''
+  $ucp_url                       = ''
+  $ucp_username                  = ''
+  $ucp_password                  = ''
+  $ucp_fingerprint               = $::ucp_fingerprint
+  $ucp_version                   = '1.0.0'
+  $ucp_host_address              = ''
+  $ucp_subject_alternative_names = ''
+  $ucp_external_ca               = false
+  $ucp_swarm_scheduler           = 'binpack'
+  $ucp_swarm_port                = ''
+  $ucp_controller_port           = '8443'
+  $ucp_preserve_certs            = 'true'
+  $ucp_license_file              = ''
+  $docker_network                = 'private-net'
+  $docker_network_driver         = 'overlay'
+  $docker_cert_path              = ''
+  $docker_host                   = ''
+}

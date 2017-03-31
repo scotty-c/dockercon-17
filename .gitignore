@@ -1,0 +1,5 @@
+/.tmp
+/.vagrant/
+/.DS_Store
+/.bundle
+/*.sh

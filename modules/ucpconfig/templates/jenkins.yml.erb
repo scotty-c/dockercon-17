@@ -1,0 +1,15 @@
+version: '2'
+services:
+  
+  jenkins:
+    container_name: jenkins
+    image: scottyc/jenkins
+    restart: always
+    privileged: true
+    volumes:
+      - /opts/jenkins/jobs:/home/jenkins/jobs
+    ports:
+      - "8080"
+    labels:
+        - "interlock.hostname=jenkins"
+        - "interlock.domain=ucp-demo.local"

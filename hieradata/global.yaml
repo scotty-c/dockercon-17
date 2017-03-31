@@ -1,0 +1,38 @@
+docker::use_upstream_package_source: true
+docker_ucp::token: "%{::swarm_token}" 
+docker_ucp::dtr::ensure: present
+docker_ucp::dtr::version: 2.0.0
+docker_ucp::dtr::dtr_external_url: https://172.17.10.102
+docker_ucp::dtr::ucp_node: ucp-02
+docker_ucp::dtr::ucp_username: admin    
+docker_ucp::dtr::ucp_password: orca4307
+docker_ucp::dtr::ucp_insecure_tls: true 
+docker_ucp::dtr::ucp_url: https://172.17.10.101
+docker_ucp::listen_address: "%{::ipaddress_eth1}"
+docker_ucp::advertise_address:  "%{::ipaddress_eth1}"
+docker_ucp::ucp_manager: 172.17.10.101
+ucpconfig::ucp_master: ucp-01
+ucpconfig::ucp_deploy_node: ucp-03
+ucpconfig::ucp_url: https://172.17.10.101
+ucpconfig::ucp_username: admin        
+ucpconfig::ucp_password: orca4307 
+ucpconfig::ucp_version: 2.1.0
+ucpconfig::ucp_host_address: "%{::ipaddress_eth1}"             
+ucpconfig::ucp_subject_alternative_names: "%{::ipaddress_eth0}" 
+ucpconfig::ucp_external_ca: false              
+ucpconfig::ucp_swarm_scheduler: spread          
+ucpconfig::ucp_swarm_port: 2375              
+ucpconfig::ucp_controller_port: 443          
+ucpconfig::ucp_preserve_certs: true           
+ucpconfig::ucp_license_file: /etc/docker/subscription.lic             
+ucpconfig::consul_master_ip: 172.17.10.101             
+ucpconfig::consul_advertise: "%{::ipaddress_eth1}" 
+ucpconfig::consul_image: scottyc/consul             
+ucpconfig::consul_bootstrap_num: 1
+ucpconfig::docker_network: swarm-private
+ucpconfig::docker_network_drive: overlay
+ucpconfig::docker_cert_path: /etc/docker
+ucpconfig::docker_host: tcp://172.17.10.101:443
+
+
+
