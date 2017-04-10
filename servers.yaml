@@ -8,17 +8,14 @@
   ram: 4096
   shell_commands: 
       - { shell: 'apt-get update -y' }
-      - { shell: 'apt-get install -y wget git' }
+      - { shell: 'apt-get install -y wget git apt-transport-https' }
       - { shell: 'mkdir ~/.docker || true' }
       - { shell: 'mkdir /etc/docker/ || true && cp /vagrant/docker_subscription.lic /etc/docker/subscription.lic' }
       - { shell: 'echo -e "172.17.10.101 ucp-01\n172.17.10.102 ucp-02\n172.17.10.103 ucp-03">/etc/hosts'}
       - { shell: '/opt/puppet/bin/gem install r10k && ln -s /opt/puppet/bin/r10k /usr/bin/r10k || true'}
       - { shell: 'cp /home/vagrant/ucp-01/Puppetfile /tmp && cd /tmp && r10k puppetfile install --verbose' }
       - { shell: 'cp /home/vagrant/ucp-01/modules/* -R /tmp/modules || true' }
-      - { shell: "curl -s 'https://sks-keyservers.net/pks/lookup?op=get&search=0xee6d536cf7dc86e2d7d56f59a178ac6c6238f52e' | sudo apt-key add --import"}
       - { shell: 'apt-get update && sudo apt-get install apt-transport-https'}
-      - { shell: 'echo "deb https://packages.docker.com/1.13/apt/repo ubuntu-trusty testing" | sudo tee /etc/apt/sources.list.d/docker.list'}
-      - { shell: 'apt-get update -y && sudo apt-get install docker-engine -y' }  
 
 - 
   box: scottyc/ubuntu-14-04-puppet-kernel-4-2  
@@ -29,17 +26,13 @@
   ram: 4096
   shell_commands: 
       - { shell: 'apt-get update -y' }
-      - { shell: 'apt-get install -y wget git' }
+      - { shell: 'apt-get install -y wget git apt-transport-https' }
       - { shell: 'mkdir ~/.docker || true' }
       - { shell: 'mkdir /etc/docker/ || true && cp /vagrant/docker_subscription.lic /etc/docker/subscription.lic' }
       - { shell: 'echo -e "172.17.10.101 ucp-01\n172.17.10.102 ucp-02\n172.17.10.103 ucp-03">/etc/hosts'}
       - { shell: '/opt/puppet/bin/gem install r10k && ln -s /opt/puppet/bin/r10k /usr/bin/r10k || true'}
       - { shell: 'cp /home/vagrant/ucp-02/Puppetfile /tmp && cd /tmp && r10k puppetfile install --verbose' }
       - { shell: 'cp /home/vagrant/ucp-02/modules/* -R /tmp/modules || true' } 
-      - { shell: "curl -s 'https://sks-keyservers.net/pks/lookup?op=get&search=0xee6d536cf7dc86e2d7d56f59a178ac6c6238f52e' | sudo apt-key add --import"}
-      - { shell: 'apt-get update && sudo apt-get install apt-transport-https'}
-      - { shell: 'echo "deb https://packages.docker.com/1.13/apt/repo ubuntu-trusty testing" | sudo tee /etc/apt/sources.list.d/docker.list'}
-      - { shell: 'apt-get update -y && sudo apt-get install docker-engine -y' }  
 
 -        
   box: scottyc/ubuntu-14-04-puppet-kernel-4-2  
@@ -47,20 +40,16 @@
   ip: "172.17.10.103"
   name: ucp-03
   forward_ports: []
-  ram: 2048
+  ram: 4096
   shell_commands: 
       - { shell: 'apt-get update -y' }
-      - { shell: 'apt-get install -y wget git' }
+      - { shell: 'apt-get install -y wget git apt-transport-https' }
       - { shell: 'mkdir ~/.docker || true' }
       - { shell: 'mkdir /etc/docker/ || true && cp /vagrant/docker_subscription.lic /etc/docker/subscription.lic' }
       - { shell: 'echo -e "172.17.10.101 ucp-01\n172.17.10.102 ucp-02\n172.17.10.103 ucp-03">/etc/hosts'}
       - { shell: '/opt/puppet/bin/gem install r10k && ln -s /opt/puppet/bin/r10k /usr/bin/r10k || true'}
       - { shell: 'cp /home/vagrant/ucp-03/Puppetfile /tmp && cd /tmp && r10k puppetfile install --verbose' }
       - { shell: 'cp /home/vagrant/ucp-03/modules/* -R /tmp/modules || true' } 
-      - { shell: "curl -s 'https://sks-keyservers.net/pks/lookup?op=get&search=0xee6d536cf7dc86e2d7d56f59a178ac6c6238f52e' | sudo apt-key add --import"}
-      - { shell: 'apt-get update && sudo apt-get install apt-transport-https'}
-      - { shell: 'echo "deb https://packages.docker.com/1.13/apt/repo ubuntu-trusty testing" | sudo tee /etc/apt/sources.list.d/docker.list'}
-      - { shell: 'apt-get update -y && sudo apt-get install docker-engine -y' }  
 
 
 - 

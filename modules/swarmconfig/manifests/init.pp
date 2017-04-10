@@ -47,7 +47,16 @@ class swarmconfig (
 
 ){
 
-  class {'docker':} 
+  class { 'docker':
+    package_name            => 'docker-ce',
+    package_source_location => '[arch=amd64] https://download.docker.com/linux/ubuntu',
+    package_key_source      => 'https://download.docker.com/linux/ubuntu/gpg',
+    package_key             => '9DC858229FC7DD38854AE2D88D81803C0EBFCD88',
+    package_repos           => 'stable',
+    package_release         => 'trusty',
+    tcp_bind                => 'tcp://127.0.0.1:4243',
+    socket_bind             => 'unix:///var/run/docker.sock',
+    }
 
   docker::swarm {'cluster_manager':
     init           => true,

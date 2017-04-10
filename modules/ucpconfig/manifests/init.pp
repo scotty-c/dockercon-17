@@ -42,7 +42,6 @@
 #
 # Copyright 2016 Your name here, unless otherwise noted.
 #
-  
 class ucpconfig (
   
   $ucp_master                    = $ucpconfig::params::ucp_master,
@@ -67,12 +66,18 @@ class ucpconfig (
 ) inherits ucpconfig::params {
 
 class { 'docker':
-  tcp_bind         => 'tcp://127.0.0.1:4243',
-  socket_bind      => 'unix:///var/run/docker.sock',
+   package_name => 'docker-ee',
+   package_source_location => '[arch=amd64] https://storebits.docker.com/ee/ubuntu/sub-43b947b7-d00f-4a95-840a-c4bbfc60a6b5',
+   package_key_source      => 'https://storebits.docker.com/ee/ubuntu/sub-43b947b7-d00f-4a95-840a-c4bbfc60a6b5/gpg',
+   package_key             => 'DD911E995A64A202E85907D6BC14F10B6D085F96',
+   package_repos           => 'stable-17.03',
+   package_release         => 'trusty',
+   tcp_bind                => 'tcp://127.0.0.1:4243',
+   socket_bind             => 'unix:///var/run/docker.sock',
 }->
 
 class {'docker::compose':
-  version => '1.7.1',
+  version => '1.11.2',
   require => Class['docker']
   } ->
 

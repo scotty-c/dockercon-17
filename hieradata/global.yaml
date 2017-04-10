@@ -25,10 +25,6 @@ ucpconfig::ucp_swarm_port: 2375
 ucpconfig::ucp_controller_port: 443          
 ucpconfig::ucp_preserve_certs: true           
 ucpconfig::ucp_license_file: /etc/docker/subscription.lic             
-ucpconfig::consul_master_ip: 172.17.10.101             
-ucpconfig::consul_advertise: "%{::ipaddress_eth1}" 
-ucpconfig::consul_image: scottyc/consul             
-ucpconfig::consul_bootstrap_num: 1
 ucpconfig::docker_network: swarm-private
 ucpconfig::docker_network_drive: overlay
 ucpconfig::docker_cert_path: /etc/docker
