@@ -10,7 +10,7 @@ node 'ucp-03' {
   include ucpconfig
 }
 
-node 'swarm-01' {
-  include swarmconfig
+node 'ucp-04' {
+  include ucpconfig
 }
 

@@ -56,7 +56,7 @@
   box: scottyc/ubuntu-14-04-puppet-kernel-4-2  
   cpu: 2
   ip: "172.17.10.104"
-  name: swarm-01
+  name: ucp-04
   forward_ports: []
   ram: 2048
   shell_commands: 
@@ -66,8 +66,8 @@
       - { shell: 'mkdir /etc/docker/ || true && cp /vagrant/docker_subscription.lic /etc/docker/subscription.lic' }
       - { shell: 'echo -e "172.17.10.104 swarm-01">/etc/hosts'}
       - { shell: '/opt/puppet/bin/gem install r10k && ln -s /opt/puppet/bin/r10k /usr/bin/r10k || true'}
-      - { shell: 'cp /home/vagrant/swarm-01/Puppetfile /tmp && cd /tmp && r10k puppetfile install --verbose' } 
-      - { shell: 'cp /home/vagrant/swarm-01/modules/* -R /tmp/modules || true' } 
+      - { shell: 'cp /home/vagrant/ucp-04/Puppetfile /tmp && cd /tmp && r10k puppetfile install --verbose' } 
+      - { shell: 'cp /home/vagrant/ucp-04/modules/* -R /tmp/modules || true' } 
 
     
 

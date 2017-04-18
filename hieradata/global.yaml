@@ -12,7 +12,7 @@ docker_ucp::listen_address: "%{::ipaddress_eth1}"
 docker_ucp::advertise_address:  "%{::ipaddress_eth1}"
 docker_ucp::ucp_manager: 172.17.10.101
 ucpconfig::ucp_master: ucp-01
-ucpconfig::ucp_deploy_node: ucp-03
+ucpconfig::ucp_deploy_node: ucp-04
 ucpconfig::ucp_url: https://172.17.10.101
 ucpconfig::ucp_username: admin        
 ucpconfig::ucp_password: orca4307 
