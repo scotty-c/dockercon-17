@@ -1,7 +1,6 @@
 docker::use_upstream_package_source: true
 docker_ucp::token: "%{::swarm_token}" 
 docker_ucp::dtr::ensure: present
-docker_ucp::dtr::version: 2.0.0
 docker_ucp::dtr::dtr_external_url: https://172.17.10.102
 docker_ucp::dtr::ucp_node: ucp-02
 docker_ucp::dtr::ucp_username: admin    
@@ -16,7 +15,7 @@ ucpconfig::ucp_deploy_node: ucp-04
 ucpconfig::ucp_url: https://172.17.10.101
 ucpconfig::ucp_username: admin        
 ucpconfig::ucp_password: orca4307 
-ucpconfig::ucp_version: 2.1.0
+ucpconfig::ucp_version: 2.1.4
 ucpconfig::ucp_host_address: "%{::ipaddress_eth1}"             
 ucpconfig::ucp_subject_alternative_names: "%{::ipaddress_eth0}" 
 ucpconfig::ucp_external_ca: false              
