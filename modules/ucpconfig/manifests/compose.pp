@@ -44,7 +44,18 @@ class ucpconfig::compose {
     require => [ Class['ucpconfig::config'], Exec['docker-compose-interlock']] 
     } ->
    
-  
+  docker_ucp::dtr {'Dtr join':
+    join => true,
+    dtr_version => 'latest',
+    dtr_external_url => 'https://172.17.10.102',
+    ucp_node => 'ucp-02',
+    ucp_username => 'admin',
+    ucp_password => 'orca4307',
+    ucp_insecure_tls => true,
+    dtr_ucp_url => 'https://172.17.10.101',
+    require => [ Class['ucpconfig::config'], Exec['docker-compose-interlock']] 
+    } ->
+   
    vcsrepo {'/etc/dockercon/':
     ensure   => present,
     provider => git,
